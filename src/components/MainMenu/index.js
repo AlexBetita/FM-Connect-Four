@@ -56,6 +56,7 @@ const MainMenu = () => {
                         <div className='player-v-player-button' onClick={playerVersusButton}
                             onMouseDown={playerVersusButtonMouseDown}
                             onMouseUp={playerVersusButtonMouseDown}
+                            onMouseLeave={playerVersusButtonMouseDown}
                             ref={playerVersusPlayerRef}
                         >
                             <div>
@@ -67,6 +68,7 @@ const MainMenu = () => {
                         <div className='game-rules-button' onClick={gameRulesButton}
                             onMouseDown={gameRulesButtonMouseDown}
                             onMouseUp={gameRulesButtonMouseDown}
+                            onMouseLeave={gameRulesButtonMouseDown}
                             ref={gameRulesRef}
                         >
                             <div>
