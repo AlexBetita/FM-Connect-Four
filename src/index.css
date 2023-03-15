@@ -1,0 +1,70 @@
+html, body{
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: hsla(257, 67%, 51%, 1);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.main-menu {
+  border: 3px solid black;
+  height: 27.188rem;
+  width: 30rem;
+  border-radius: 40px;
+  /* background-color: hsla(257, 100%, 67%, .5); */
+  background-color: rgba(121,69,255,1);
+  position: relative;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-menu-background {
+  position: absolute;
+  height: 27.188rem;
+  width: 30rem;
+  border-radius: 35px;
+  background-color: hsla(0,0%,0%,1);
+  z-index: 1;
+  border: 2px solid black;
+  bottom: 13.7rem;
+}
+
+.main-menu-items{
+  /* border: 1px solid black; */
+  height: 19.063rem;
+  width: 25rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-logo {
+  height: 52px;
+  width: 52px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
