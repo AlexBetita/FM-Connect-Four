@@ -47,34 +47,35 @@ const MainMenu = () => {
 
     return (
         <>
-            <div className="main-menu">
-                <div className="main-menu-items">
-                    <img src={cfgLogo} className="menu-logo"/>
-
-                    <div className='player-v-player-button' onClick={playerVersusButton}
-                        onMouseDown={playerVersusButtonMouseDown}
-                        onMouseUp={playerVersusButtonMouseDown}
-                        ref={playerVersusPlayerRef}
-                    >
-                        <div>
-                        PLAY VS PLAYER
+            <div style={{'position' : 'relative'}}>
+                <div className="main-menu">
+                    <div className="main-menu-items">
+                        <img src={cfgLogo} className="menu-logo"/>
+                        <div className='player-v-player-button' onClick={playerVersusButton}
+                            onMouseDown={playerVersusButtonMouseDown}
+                            onMouseUp={playerVersusButtonMouseDown}
+                            ref={playerVersusPlayerRef}
+                        >
+                            <div>
+                            PLAY VS PLAYER
+                            </div>
+                            <img src={plaverVplayer}/>
                         </div>
-                        <img src={plaverVplayer}/>
-                    </div>
-                    <div className='player-v-player-button-b' ref={playerVersusPlayerBRef}></div>
-                    <div className='game-rules-button' onClick={gameRulesButton}
-                        onMouseDown={gameRulesButtonMouseDown}
-                        onMouseUp={gameRulesButtonMouseDown}
-                        ref={gameRulesRef}
-                    >
-                        <div>
-                        GAME RULES
+                        <div className='player-v-player-button-b' ref={playerVersusPlayerBRef}></div>
+                        <div className='game-rules-button' onClick={gameRulesButton}
+                            onMouseDown={gameRulesButtonMouseDown}
+                            onMouseUp={gameRulesButtonMouseDown}
+                            ref={gameRulesRef}
+                        >
+                            <div>
+                            GAME RULES
+                            </div>
                         </div>
+                        <div className='game-rules-button-b' ref={gameRulesBRef}></div>
                     </div>
-                    <div className='game-rules-button-b' ref={gameRulesBRef}></div>
                 </div>
-            </div>
-            <div className="main-menu-background">
+                <div className="main-menu-background">
+                </div>
             </div>
         </>
     )
