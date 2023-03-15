@@ -19,7 +19,7 @@
     border-radius: 35px;
     background-color: hsla(0,0%,0%,1);
     z-index: 1;
-    border: 2px solid black;
+    border: 3px solid black;
     bottom: 13.7rem;
   }
   
@@ -42,6 +42,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    user-select: none;
   }
   
   .main-menu-items > div > *{
@@ -59,6 +60,11 @@
     font-size: 1.5rem;
     font-weight: bold;
     z-index: 1;
+    cursor: pointer;
+  }
+
+  .player-v-player-button:hover {
+    background-color: rgb(246, 214, 147);
   }
   
   .player-v-player-button-b {
@@ -70,6 +76,7 @@
     background-color: hsla(0,0%,0%);
     z-index: 0;
     bottom: 155px;
+    cursor: pointer;
   }
   
   .game-rules-button{
@@ -81,6 +88,11 @@
     font-size: 1.5rem;
     font-weight: bold;
     z-index: 1;
+    cursor: pointer;
+  }
+
+  .game-rules-button:hover {
+    background-color: rgb(230, 227, 227);
   }
   
   .game-rules-button-b {
@@ -92,4 +104,5 @@
     background-color: hsla(0,0%,0%);
     z-index: 0;
     bottom: 55px;
+    cursor: pointer;
   }
