@@ -1,0 +1,62 @@
+.game-rules-main{
+    height: 33.563rem;
+    width: 30rem;
+    background-color: hsla(0,0%,100%,1);
+    border-radius: 35px;
+    border: 3px solid black;
+    z-index: 100;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.game-rules-main-b{
+    position: absolute;
+    height: 33.563rem;
+    width: 30rem;
+    background-color: hsla(0,0%,0%,1);
+    border-radius: 35px;
+    border: 3px solid black;
+    z-index: 1;
+    top: 0.7rem;
+}
+
+.game-rules-main > div:first-child{
+    font-size: 3.5rem;
+    padding: 5px 0;
+    font-weight: bold;
+}
+
+.check-button{
+    position: absolute;
+    bottom: -40px;
+    cursor: pointer;
+}
+
+.check-button:hover{
+    filter: grayscale(15%)
+}
+
+.objectives > div:first-child {
+    color: hsla(257, 67%, 51%, 1);
+    font-weight: 'bold';
+    font-size: 1.25rem;
+}
+
+.objectives > div:last-child {
+    font-size: 1rem;
+    color: rgb(41, 41, 41)
+}
+
+.how-to-play > div:first-child {
+    color: hsla(257, 67%, 51%, 1);
+    font-weight: 'bold';
+    font-size: 1.25rem;
+}
+
+.how-to-play > div:last-child {
+    font-size: 1rem;
+}

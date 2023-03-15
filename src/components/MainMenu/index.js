@@ -1,24 +1,26 @@
-import cfgLogo from '../../assets/images/logo.svg'
-import plaverVplayer from '../../assets/images/player-vs-player.svg'
+import { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import './index.css'
 
-import { useRef } from 'react'
+import cfgLogo from '../../assets/images/logo.svg'
+import plaverVplayer from '../../assets/images/player-vs-player.svg'
 
 const MainMenu = () => {
+
+    const navigate = useNavigate();
 
     const playerVersusPlayerRef = useRef('')
     const playerVersusPlayerBRef = useRef('')
     const gameRulesRef = useRef('')
     const gameRulesBRef = useRef('')
 
-
     const playerVersusButton = () => {
         console.log('player')
     }
 
     const gameRulesButton = () => {
-        console.log('game rules')
+        navigate('/rules')
     }
 
     const playerVersusButtonMouseDown = (e) => {
