@@ -9,9 +9,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
-
 
 .game-rules-main-b{
     position: absolute;
@@ -34,6 +33,7 @@
     position: absolute;
     bottom: -40px;
     cursor: pointer;
+    user-select: none;
 }
 
 .check-button:hover{
@@ -46,9 +46,14 @@
     font-size: 1.25rem;
 }
 
+.objectives > div {
+    padding: 0 36px;
+}
+
 .objectives > div:last-child {
     font-size: 1rem;
-    color: rgb(41, 41, 41)
+    color: rgb(41, 41, 41);
+    padding-top: 26px;
 }
 
 .how-to-play > div:first-child {
@@ -59,4 +64,23 @@
 
 .how-to-play > div:last-child {
     font-size: 1rem;
+    padding-top: 16px;
+}
+
+.how-to-play > div {
+    padding: 0 36px;
+}
+
+.how-to-play > div:last-child > div{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 16px;
+}
+
+.how-to-play > div:last-child > div:last-child{
+    margin-bottom: 22px;
+}
+
+.how-to-play > div:last-child > div > div{
+    padding-right: 20px;
 }

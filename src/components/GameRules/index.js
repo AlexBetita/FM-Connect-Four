@@ -46,17 +46,26 @@ const GameRules = () => {
                             HOW TO PLAY
                         </div>
                         <div>
-                            1 Red goes first in the first game.
-                            2 Players must alternate turns, and only one disc can be dropped in each turn. 
-                            3 The game ends when there is a 4-in-a-row or a stalemate.
-                            4 The starter of the previous game goes second on the next game.
+                            <div>
+                                <div>1</div> Red goes first in the first game.
+                            </div>
+                            <div>
+                                <div>2</div> Players must alternate turns, and only one disc can be dropped in each turn. 
+                            </div>
+                            <div>
+                                <div>3</div> The game ends when there is a 4-in-a-row or a stalemate.
+                            </div>
+                            <div>
+                                <div>4</div> The starter of the previous game goes second on the next game.
+                            </div>
                         </div>
                     </div>
 
-                    <img className='check-button' src={icon}
+                    <img className='check-button' src={icon} draggable={false}
                         onClick={checkButton}
                         onMouseDown={checkButtonActive}
                         onMouseUp={checkButtonActive}
+                        onMouseLeave={checkButtonActive}
                     />
                 </div>
                 <div className='game-rules-main-b'></div>

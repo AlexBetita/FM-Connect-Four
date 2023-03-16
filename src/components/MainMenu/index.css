@@ -12,97 +12,97 @@
     align-items: center;
   }
   
-  .main-menu-background {
-    position: absolute;
-    height: 27.188rem;
-    width: 30rem;
-    border-radius: 35px;
-    background-color: hsla(0,0%,0%,1);
-    z-index: 1;
-    border: 3px solid black;
-    top: 0.7rem;
-  }
-  
-  .main-menu-items{
-    /* border: 1px solid black; */
-    height: 19.063rem;
-    width: 25rem;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .menu-logo {
-    height: 52px;
-    width: 52px;
-  }
-  
-  .main-menu-items > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    user-select: none;
-  }
-  
-  .main-menu-items > div > *{
-    padding: 0 20px;
-  }
-  
-  .player-v-player-button{
-    border: 3px solid black;
-    height: 4.5rem;
-    width: 25rem;
-    border-radius: 20px;
-    background-color: hsla(41,100%,70%,1);
-    position: relative;
-    top: 25px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    z-index: 1;
-    cursor: pointer;
-  }
+.main-menu-background {
+  position: absolute;
+  height: 27.188rem;
+  width: 30rem;
+  border-radius: 35px;
+  background-color: hsla(0,0%,0%,1);
+  z-index: 1;
+  border: 3px solid black;
+  top: 0.7rem;
+}
 
-  .player-v-player-button:hover {
-    background-color: rgb(246, 214, 147);
-  }
-  
-  .player-v-player-button-b {
-    position: absolute;
-    border: 3px solid black;
-    height: 4.5rem;
-    width: 25rem;
-    border-radius: 20px;
-    background-color: hsla(0,0%,0%);
-    z-index: 0;
-    bottom: 155px;
-    cursor: pointer;
-  }
-  
-  .game-rules-button{
-    border: 3px solid black;
-    height: 4.5rem;
-    width: 25rem;
-    border-radius: 20px;
-    background-color: hsla(0,0%,100%,1);
-    font-size: 1.5rem;
-    font-weight: bold;
-    z-index: 1;
-    cursor: pointer;
-  }
+.main-menu-items{
+  /* border: 1px solid black; */
+  height: 19.063rem;
+  width: 25rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .game-rules-button:hover {
-    background-color: rgb(230, 227, 227);
-  }
-  
-  .game-rules-button-b {
-    position: absolute;
-    border: 3px solid black;
-    height: 4.5rem;
-    width: 25rem;
-    border-radius: 20px;
-    background-color: hsla(0,0%,0%);
-    z-index: 0;
-    bottom: 55px;
-    cursor: pointer;
-  }
+.menu-logo {
+  height: 52px;
+  width: 52px;
+}
+
+.main-menu-items > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.main-menu-items > div > *{
+  padding: 0 20px;
+}
+
+.player-v-player-button{
+  border: 3px solid black;
+  height: 4.5rem;
+  width: 25rem;
+  border-radius: 20px;
+  background-color: hsla(41,100%,70%,1);
+  position: relative;
+  top: 25px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.player-v-player-button:hover {
+  background-color: rgb(246, 214, 147);
+}
+
+.player-v-player-button-b {
+  position: absolute;
+  border: 3px solid black;
+  height: 4.5rem;
+  width: 25rem;
+  border-radius: 20px;
+  background-color: hsla(0,0%,0%);
+  z-index: 0;
+  bottom: 155px;
+  cursor: pointer;
+}
+
+.game-rules-button{
+  border: 3px solid black;
+  height: 4.5rem;
+  width: 25rem;
+  border-radius: 20px;
+  background-color: hsla(0,0%,100%,1);
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.game-rules-button:hover {
+  background-color: rgb(230, 227, 227);
+}
+
+.game-rules-button-b {
+  position: absolute;
+  border: 3px solid black;
+  height: 4.5rem;
+  width: 25rem;
+  border-radius: 20px;
+  background-color: hsla(0,0%,0%);
+  z-index: 0;
+  bottom: 55px;
+  cursor: pointer;
+}
