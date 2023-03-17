@@ -26,50 +26,52 @@ const GameRules = () => {
 
     return (
         <>
-            <div style={{'position' : 'relative'}}>
+            <div className='game-rules-background'>
+                <div style={{'position' : 'relative'}}>
 
-                <div className='game-rules-main'>
-                    <div>
-                        RULES
-                    </div>
-                    <div className='objectives'>
+                    <div className='game-rules-main'>
                         <div>
-                            OBJECTIVE
+                            RULES
                         </div>
-                        <div>
-                            Be the first player to connect 4 of the same colored discs in a row (either 
-                            vertically, horizontally, or diagonally).     
-                        </div>
-                    </div>
-                    <div className='how-to-play'>
-                        <div>
-                            HOW TO PLAY
-                        </div>
-                        <div>
+                        <div className='objectives'>
                             <div>
-                                <div>1</div> Red goes first in the first game.
+                                OBJECTIVE
                             </div>
                             <div>
-                                <div>2</div> Players must alternate turns, and only one disc can be dropped in each turn. 
-                            </div>
-                            <div>
-                                <div>3</div> The game ends when there is a 4-in-a-row or a stalemate.
-                            </div>
-                            <div>
-                                <div>4</div> The starter of the previous game goes second on the next game.
+                                Be the first player to connect 4 of the same colored discs in a row (either 
+                                vertically, horizontally, or diagonally).     
                             </div>
                         </div>
-                    </div>
+                        <div className='how-to-play'>
+                            <div>
+                                HOW TO PLAY
+                            </div>
+                            <div>
+                                <div>
+                                    <div>1</div> Red goes first in the first game.
+                                </div>
+                                <div>
+                                    <div>2</div> Players must alternate turns, and only one disc can be dropped in each turn. 
+                                </div>
+                                <div>
+                                    <div>3</div> The game ends when there is a 4-in-a-row or a stalemate.
+                                </div>
+                                <div>
+                                    <div>4</div> The starter of the previous game goes second on the next game.
+                                </div>
+                            </div>
+                        </div>
 
-                    <img className='check-button' src={icon} draggable={false}
-                        onClick={checkButton}
-                        onMouseDown={checkButtonActive}
-                        onMouseUp={checkButtonActive}
-                        onMouseLeave={checkButtonActive}
-                    />
+                        <img className='check-button' src={icon} draggable={false}
+                            onClick={checkButton}
+                            onMouseDown={checkButtonActive}
+                            onMouseUp={checkButtonActive}
+                            onMouseLeave={checkButtonActive}
+                        />
+                    </div>
+                    <div className='game-rules-main-b'></div>
+
                 </div>
-                <div className='game-rules-main-b'></div>
-
             </div>
         </>
     )

@@ -1,3 +1,13 @@
+.game-rules-background {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: rgba(121,69,255,1);
+}
+
 .game-rules-main{
     height: 33.563rem;
     width: 30rem;
@@ -41,7 +51,7 @@
 }
 
 .objectives > div:first-child {
-    color: hsla(257, 67%, 51%, 1);
+    color: rgba(121,69,255,1);
     font-weight: 'bold';
     font-size: 1.25rem;
 }
@@ -57,7 +67,7 @@
 }
 
 .how-to-play > div:first-child {
-    color: hsla(257, 67%, 51%, 1);
+    color: rgba(121,69,255,1);
     font-weight: 'bold';
     font-size: 1.25rem;
 }
