@@ -16,7 +16,7 @@ const MainMenu = () => {
     const gameRulesBRef = useRef('')
 
     const playerVersusButton = () => {
-        console.log('player')
+        navigate('/game')
     }
 
     const gameRulesButton = () => {
