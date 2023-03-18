@@ -14,7 +14,11 @@ const GameBoard = () => {
                 <div className='game-board-menu'>
 
                     <div className='player-1-box'>
-                        <div className='player-1'></div>
+                        <div className='player-1'>
+                            <img className='player-1-image' src={playerOne}/>
+                            <div style={{'fontSize' : '1.25rem', 'paddingTop' :'20px'}}> PLAYER 1 </div>
+                            <div className='player-1-score'> 0 </div>
+                        </div>
                         <div className='player-1-b'></div>
                     </div>
 
@@ -25,7 +29,11 @@ const GameBoard = () => {
                     </div>
 
                     <div className='player-2-box'>
-                        <div className='player-2'></div>
+                        <div className='player-2'>
+                            <img className='player-2-image' src={playerTwo}/>
+                            <div style={{'fontSize' : '1.25rem', 'paddingTop' :'20px'}}> PLAYER 2 </div>
+                            <div className='player-2-score'> 0 </div>
+                        </div>
                         <div className='player-2-b'></div>
                     </div>
                 </div>

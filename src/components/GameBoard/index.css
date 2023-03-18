@@ -47,6 +47,10 @@
     border-radius: 25px;
     z-index: 2;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .player-1-b {
@@ -60,6 +64,17 @@
     bottom: -10px;
 }
 
+.player-1-image {
+    height: 59px;
+    width: 54px;
+    position: absolute;
+    top: -28px;
+}
+
+.player-1-score {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
 
 .player-2-box {
     position: relative;
@@ -73,6 +88,10 @@
     border-radius: 25px;
     z-index: 2;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .player-2-b {
@@ -84,4 +103,16 @@
     border-radius: 25px;
     z-index: 1;
     bottom: -10px;
+}
+
+.player-2-image {
+    height: 59px;
+    width: 54px;
+    position: absolute;
+    top: -28px;
+}
+
+.player-2-score {
+    font-size: 3.5rem;
+    font-weight: bold;
 }
