@@ -116,3 +116,82 @@
     font-size: 3.5rem;
     font-weight: bold;
 }
+
+.game-board-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.game-board {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+}
+
+.board-white {
+    z-index: 2;
+}
+
+.board-black {
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+}
+
+.game-board-top{
+    display: flex;
+    flex-direction: row;
+    padding: 50px 0;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.menu {
+    background-color: hsla(257, 67%, 51%, 1);
+    color: white;
+    height: 2.438rem;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-radius: 20px;
+}
+
+.restart {
+    background-color: hsla(257, 67%, 51%, 1);
+    color: white;
+    height: 2.438rem;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-radius: 20px;
+}
+
+.turn-background{
+    z-index: 3;
+    width: 11.938rem;
+    height: 9.375rem;
+    position: relative;
+    bottom: 35px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.current-player {
+    color: white;
+    position: relative;
+    top: 15px;
+}
+
+.timer {
+    color: white;
+    position: relative;
+    font-size: 3.5rem;
+    font-weight: bold;
+}
