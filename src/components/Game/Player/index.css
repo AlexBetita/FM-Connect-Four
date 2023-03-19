@@ -1,0 +1,40 @@
+.player-box {
+    position: relative;
+}
+
+.player {
+    height: 10rem;
+    width: 8.813rem;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 25px;
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-b {
+    position: absolute;
+    height: 10rem;
+    width: 8.813rem;
+    background-color: black;
+    border: 3px solid black;
+    border-radius: 25px;
+    z-index: 1;
+    bottom: -10px;
+}
+
+.player-image {
+    height: 59px;
+    width: 54px;
+    position: absolute;
+    top: -28px;
+}
+
+.player-score {
+    font-size: 3.5rem;
+    font-weight: bold;
+}

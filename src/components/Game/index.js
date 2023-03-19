@@ -1,6 +1,8 @@
 import { useNavigation } from 'react-router-dom';
 import { useState } from 'react'
 
+import Player from './Player';
+
 import './index.css'
 
 import cfgLogo from '../../assets/images/logo.svg'
@@ -23,17 +25,8 @@ const GameBoard = () => {
             <div className='game-board-inner'>
 
                 <div className='game-board-menu'>
-
-                    <div className='player-1-box'>
-                        <div className='player-1'>
-                            <img className='player-1-image' src={playerOne}/>
-                            <div style={{'fontSize' : '1.25rem', 'paddingTop' :'20px'}}> PLAYER 1 </div>
-                            <div className='player-1-score'> 
-                                {player1Score}
-                            </div>
-                        </div>
-                        <div className='player-1-b'></div>
-                    </div>
+                    
+                    <Player score={player1Score} playerIcon={playerOne}/>
 
                     <div className='game-board-body'>
                         <div className='game-board-top'>
@@ -66,16 +59,7 @@ const GameBoard = () => {
                         </div>
                     </div>
 
-                    <div className='player-2-box'>
-                        <div className='player-2'>
-                            <img className='player-2-image' src={playerTwo}/>
-                            <div style={{'fontSize' : '1.25rem', 'paddingTop' :'20px'}}> PLAYER 2 </div>
-                            <div className='player-2-score'>
-                                {player2Score}
-                            </div>
-                        </div>
-                        <div className='player-2-b'></div>
-                    </div>
+                    <Player score={player2Score} playerIcon={playerTwo}/>
                 </div>
             </div>
             <div className='bottom-board-neutral'></div>

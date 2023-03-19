@@ -6,7 +6,7 @@ import {
 import ErrorPage from './components/ErrorPage';
 import MainMenu from "./components/MainMenu";
 import GameRules from './components/GameRules';
-import GameBoard from './components/GameBoard';
+import GameBoard from './components/Game';
 
 const router = createBrowserRouter([
   {
