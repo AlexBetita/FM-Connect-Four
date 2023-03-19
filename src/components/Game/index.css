@@ -1,4 +1,4 @@
-.game-board-background {
+.game-background {
     height: 100%;
     width: 100%;
     display: flex;
@@ -7,7 +7,7 @@
     background-color: rgba(121,69,255,1);
 }
 
-.game-board-inner {
+.game-inner {
     position: relative;
     height: 100%;
     width: 100%;
@@ -15,7 +15,7 @@
     align-items: center;
 }
 
-.bottom-board-neutral {
+.game-bottom-neutral {
     position: absolute;
     height: 12.5rem;
     width: 100%;
@@ -25,7 +25,7 @@
     border-top-left-radius: 60px;
 }
 
-.game-board-menu {
+.game-menu {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -35,163 +35,3 @@
     height: 100%;
 }
 
-.player-1-box {
-    position: relative;
-}
-
-.player-1 {
-    height: 10rem;
-    width: 8.813rem;
-    background-color: white;
-    border: 3px solid black;
-    border-radius: 25px;
-    z-index: 2;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.player-1-b {
-    position: absolute;
-    height: 10rem;
-    width: 8.813rem;
-    background-color: black;
-    border: 3px solid black;
-    border-radius: 25px;
-    z-index: 1;
-    bottom: -10px;
-}
-
-.player-1-image {
-    height: 59px;
-    width: 54px;
-    position: absolute;
-    top: -28px;
-}
-
-.player-1-score {
-    font-size: 3.5rem;
-    font-weight: bold;
-}
-
-.player-2-box {
-    position: relative;
-}
-
-.player-2 {
-    height: 10rem;
-    width: 8.813rem;
-    background-color: white;
-    border: 3px solid black;
-    border-radius: 25px;
-    z-index: 2;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.player-2-b {
-    position: absolute;
-    height: 10rem;
-    width: 8.813rem;
-    background-color: black;
-    border: 3px solid black;
-    border-radius: 25px;
-    z-index: 1;
-    bottom: -10px;
-}
-
-.player-2-image {
-    height: 59px;
-    width: 54px;
-    position: absolute;
-    top: -28px;
-}
-
-.player-2-score {
-    font-size: 3.5rem;
-    font-weight: bold;
-}
-
-.game-board-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-}
-
-.game-board {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    align-items: center;
-}
-
-.board-white {
-    z-index: 2;
-}
-
-.board-black {
-    position: absolute;
-    z-index: 1;
-    top: 0px;
-}
-
-.game-board-top{
-    display: flex;
-    flex-direction: row;
-    padding: 50px 0;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.menu {
-    background-color: hsla(257, 67%, 51%, 1);
-    color: white;
-    height: 2.438rem;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    border-radius: 20px;
-}
-
-.restart {
-    background-color: hsla(257, 67%, 51%, 1);
-    color: white;
-    height: 2.438rem;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    border-radius: 20px;
-}
-
-.turn-background{
-    z-index: 3;
-    width: 11.938rem;
-    height: 9.375rem;
-    position: relative;
-    bottom: 35px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.current-player {
-    color: white;
-    position: relative;
-    top: 15px;
-}
-
-.timer {
-    color: white;
-    position: relative;
-    font-size: 3.5rem;
-    font-weight: bold;
-}
