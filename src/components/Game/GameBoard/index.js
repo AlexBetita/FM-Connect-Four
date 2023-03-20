@@ -11,16 +11,22 @@ import counterRed from '../../../assets/images/counter-red-large.svg'
 import counterYellow from '../../../assets/images/counter-yellow-large.svg'
 import markerRed from '../../../assets/images/marker-red-2.svg'
 import markerYellow from '../../../assets/images/marker-yellow-2.svg'
+import turnBackgroundRed from '../../../assets/images/turn-background-red.svg'
+import turnBackgroundYellow from '../../../assets/images/turn-background-yellow.svg'
 
-const GameBoard = ({timer, turnBackground, currentPlayer}) => {
+const GameBoard = ({timer, currentPlayer}) => {
 
     const navigate = useNavigate()
 
     const markerRef = useRef();
+    const time = useRef()
+    const playerTurn = useRef()
 
     const [ column, setColumn ] = useState('4')
     const [ row, setRow ] = useState('1')
     const [ counter, setCounter ] = useState(counterRed)
+    const [ marker, setMarker ] = useState(markerRed)
+    const [ turn, setTurn ] = useState(turnBackgroundRed)
 
     const cellsRef = useRef({
         '1' : [],
@@ -81,8 +87,20 @@ const GameBoard = ({timer, turnBackground, currentPlayer}) => {
             if(!currentCell.firstChild.src && !droppedCounter){
                 currentCell.firstChild.src = counter
                 droppedCounter = true
-                if (counter === counterRed) setCounter(counterYellow)
-                else setCounter(counterRed)
+                if (counter === counterRed) {
+                    setCounter(counterYellow)
+                    setMarker(markerYellow)
+                    setTurn(turnBackgroundYellow)
+                    time.current.style.color = 'black'
+                    playerTurn.current.style.color = 'black'
+                }
+                else {
+                    setCounter(counterRed)
+                    setMarker(markerRed)
+                    setTurn(turnBackgroundRed)
+                    time.current.style.color = 'white'
+                    playerTurn.current.style.color = 'white'
+                }
             }
         }
     }
@@ -139,7 +157,7 @@ const GameBoard = ({timer, turnBackground, currentPlayer}) => {
                 </div>
 
                 <div className='game-board'>
-                    <img className='game-marker' src={markerRed} ref={markerRef}/>
+                    <img className='game-marker' src={marker} ref={markerRef}/>
                     <div style={{'position' : 'relative'}}>
 
                         <div className='cells'>
@@ -155,11 +173,11 @@ const GameBoard = ({timer, turnBackground, currentPlayer}) => {
 
 
                     <div className='turn-background'>
-                        <img style={{'position' : 'absolute'}}src={turnBackground}/>
-                        <div className='current-player'>
+                        <img style={{'position' : 'absolute'}} src={turn}/>
+                        <div className='current-player' ref={playerTurn}>
                             {currentPlayer}
                         </div>
-                        <div className='game-timer'>
+                        <div className='game-timer'ref={time}>
                             {timer}
                         </div>
                     </div>

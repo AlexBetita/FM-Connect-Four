@@ -26,7 +26,6 @@ const Game = () => {
                     <Player score={player1Score} playerIcon={playerOne}/>
                     
                     <GameBoard timer={timer} 
-                            turnBackground={turnBackgroundRed} 
                             currentPlayer={currentPlayer}/>
 
                     <Player score={player2Score} playerIcon={playerTwo}/>
