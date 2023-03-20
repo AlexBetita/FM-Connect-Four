@@ -26,7 +26,9 @@ const Game = () => {
                     <Player score={player1Score} playerIcon={playerOne}/>
                     
                     <GameBoard timer={timer} 
-                            currentPlayer={currentPlayer}/>
+                            currentPlayer={currentPlayer}
+                            setTimer={setTimer}
+                            />
 
                     <Player score={player2Score} playerIcon={playerTwo}/>
                 </div>

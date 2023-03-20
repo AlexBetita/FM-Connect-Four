@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import React from 'react'
 
@@ -14,7 +14,7 @@ import markerYellow from '../../../assets/images/marker-yellow-2.svg'
 import turnBackgroundRed from '../../../assets/images/turn-background-red.svg'
 import turnBackgroundYellow from '../../../assets/images/turn-background-yellow.svg'
 
-const GameBoard = ({timer, currentPlayer}) => {
+const GameBoard = ({timer, currentPlayer, setTimer}) => {
 
     const navigate = useNavigate()
 
@@ -27,6 +27,7 @@ const GameBoard = ({timer, currentPlayer}) => {
     const [ counter, setCounter ] = useState(counterRed)
     const [ marker, setMarker ] = useState(markerRed)
     const [ turn, setTurn ] = useState(turnBackgroundRed)
+    
 
     const cellsRef = useRef({
         '1' : [],
@@ -37,6 +38,19 @@ const GameBoard = ({timer, currentPlayer}) => {
         '6' : [],
         '7' : []
     })
+
+    useEffect(()=> {
+        const timerInterval = setInterval(()=> {
+            let currentTime = timer.slice(0,2)
+            currentTime = parseInt(currentTime) - 1
+            setTimer(`${currentTime}s`)
+        }, 1000)
+
+        return () => {
+            clearInterval(timerInterval)
+        }
+        
+    },[timer])
 
     const menuButton = () => {
         navigate('/')
@@ -93,6 +107,7 @@ const GameBoard = ({timer, currentPlayer}) => {
                     setTurn(turnBackgroundYellow)
                     time.current.style.color = 'black'
                     playerTurn.current.style.color = 'black'
+                    setTimer('30s')
                 }
                 else {
                     setCounter(counterRed)
@@ -100,6 +115,7 @@ const GameBoard = ({timer, currentPlayer}) => {
                     setTurn(turnBackgroundRed)
                     time.current.style.color = 'white'
                     playerTurn.current.style.color = 'white'
+                    setTimer('30s')
                 }
             }
         }
