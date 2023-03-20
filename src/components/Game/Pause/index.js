@@ -1,14 +1,27 @@
 import { useEffect, useCallback, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import './index.css'
 
 const Pause = ({setPause}) => {
+
+    const navigate = useNavigate()
 
     const continueRef = useRef({
         'continue' : [],
         'restart' : [],
         'quit' : []
     })
+
+    const handeleNavigate = (action) => {
+        if(action === 'continue') {
+            setPause((prevPause) => !prevPause);
+        } else if (action === 'restart') {
+            console.log('restart')
+        } else {
+            navigate('/')
+        }
+    }
 
     const checkButtonActive = (e, action) => {
         if(e.type === 'mousedown'){
@@ -54,6 +67,9 @@ const Pause = ({setPause}) => {
                 onMouseUp={(e) => {
                     checkButtonActive(e, 'continue')
                 }}
+                onClick={(e) => {
+                    handeleNavigate('continue')
+                }}
             >
                 CONTINUE GAME
             </div>
@@ -73,6 +89,9 @@ const Pause = ({setPause}) => {
                 onMouseUp={(e) => {
                     checkButtonActive(e, 'restart')
                 }}
+                onClick={(e) => {
+                    handeleNavigate('restart')
+                }}
             >
                 RESTART
             </div>
@@ -91,6 +110,9 @@ const Pause = ({setPause}) => {
                 }}
                 onMouseUp={(e) => {
                     checkButtonActive(e, 'quit')
+                }}
+                onClick={(e) => {
+                    handeleNavigate('quit')
                 }}
             >
                 QUIT GAME

@@ -14,7 +14,7 @@ import markerYellow from '../../../assets/images/marker-yellow-2.svg'
 import turnBackgroundRed from '../../../assets/images/turn-background-red.svg'
 import turnBackgroundYellow from '../../../assets/images/turn-background-yellow.svg'
 
-const GameBoard = ({timer, currentPlayer, setTimer}) => {
+const GameBoard = ({timer, currentPlayer, setTimer, pause}) => {
 
     const navigate = useNavigate()
 
@@ -39,18 +39,32 @@ const GameBoard = ({timer, currentPlayer, setTimer}) => {
         '7' : []
     })
 
-    useEffect(()=> {
-        const timerInterval = setInterval(()=> {
+    const interValGenerator = () => {
+        return setInterval(()=> {
             let currentTime = timer.slice(0,2)
             currentTime = parseInt(currentTime) - 1
             setTimer(`${currentTime}s`)
         }, 1000)
+    }
+
+    useEffect(()=> {
+
+        let timerInterval = interValGenerator()
+
+        if(pause){
+            clearInterval(timerInterval)
+            timerInterval = ''
+        } 
+
+        if(!pause && !timerInterval){
+            timerInterval = interValGenerator()
+        }
 
         return () => {
             clearInterval(timerInterval)
         }
         
-    },[timer])
+    },[timer, pause])
 
     const menuButton = () => {
         navigate('/')
