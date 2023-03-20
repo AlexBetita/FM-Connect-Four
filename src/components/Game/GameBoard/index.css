@@ -156,3 +156,8 @@
 /* .cell {
     z-index: 100;
 } */
+
+.cell-image {
+    user-select: none;
+    pointer-events: none;
+}

@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import React from 'react'
 
@@ -18,13 +18,18 @@ const GameBoard = ({timer, turnBackground, currentPlayer}) => {
 
     const markerRef = useRef();
 
+    const [ column, setColumn ] = useState('4')
+    const [ row, setRow ] = useState('1')
+    const [ counter, setCounter ] = useState(counterRed)
+
     const cellsRef = useRef({
         '1' : [],
         '2' : [],
         '3' : [],
         '4' : [],
         '5' : [],
-        '6' : []
+        '6' : [],
+        '7' : []
     })
 
     const menuButton = () => {
@@ -33,6 +38,7 @@ const GameBoard = ({timer, turnBackground, currentPlayer}) => {
 
     const moveMarker = (e) => {
         const currentColumn = e.target.className.split(' ')[1][4]
+        const currentRow = e.target.className.split(' ')[0][4]
         if (currentColumn === '4') {
             markerRef.current.style.left = 'unset'
             markerRef.current.style.right = 'unset'
@@ -45,15 +51,39 @@ const GameBoard = ({timer, turnBackground, currentPlayer}) => {
         } else if (currentColumn === '3') {
             markerRef.current.style.left = '208px'
             markerRef.current.style.right = '0px'
-        } else if (currentColumn === '5') {
-            markerRef.current.style.left = '0px'
+        } else if (currentColumn === '7') {
+            markerRef.current.style.left = 'unset'
             markerRef.current.style.right = '32px'
         } else if (currentColumn === '6') {
-            markerRef.current.style.left = '0px'
+            markerRef.current.style.left = 'unset'
             markerRef.current.style.right = '120px'
-        } else if (currentColumn === '7'){
-            markerRef.current.style.left = '0x'
+        } else if (currentColumn === '5'){
+            markerRef.current.style.left = 'unset'
             markerRef.current.style.right = '210px'
+        }
+        setRow(currentRow)
+        setColumn(currentColumn)
+    }
+
+    const dropCounter = () => {
+        let droppedCounter = false
+        // cellsRef.current[column].forEach(async (e) => {
+        //     if(!e.firstChild.src && !droppedCounter){
+        //         e.firstChild.src = counter
+        //         droppedCounter = true
+        //         if (counter === counterRed) await setCounter(counterYellow)
+        //         else await setCounter(counterRed)
+        //     }
+        // })
+        const columnLength = cellsRef.current[column].length
+        for(let i = columnLength - 1; i >= 0; i--){
+            const currentCell = cellsRef.current[column][i]
+            if(!currentCell.firstChild.src && !droppedCounter){
+                currentCell.firstChild.src = counter
+                droppedCounter = true
+                if (counter === counterRed) setCounter(counterYellow)
+                else setCounter(counterRed)
+            }
         }
     }
 
@@ -70,15 +100,17 @@ const GameBoard = ({timer, turnBackground, currentPlayer}) => {
                                         className={`row-${currentRow} col-${currentColumn} cell`}
                                         key={`cell-${currentRow}-${currentColumn}`}
                                         ref={(element)=>{
-                                            cellsRef.current[currentRow].push(element)
+                                            if(cellsRef.current[currentColumn].length < 6 && element){
+                                                cellsRef.current[currentColumn].push(element)
+                                            }
                                         }}
                                         onMouseEnter={moveMarker}
-                                        onClick={moveMarker}
+                                        onClick={dropCounter}
                                     >
                                     <img 
                                         key={`counter-${currentRow}-${currentColumn}`}
-                                        src={counterRed}
-                                        style={{'pointerEvents': 'none'}}
+                                        // src={counterRed}
+                                        className='cell-image'
                                     />
                                 </div>
                             )
