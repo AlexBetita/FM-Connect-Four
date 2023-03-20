@@ -16,6 +16,7 @@
 
 .game-board-white {
     z-index: 2;
+    position: relative;
 }
 
 .game-board-black {
@@ -76,4 +77,62 @@
     position: relative;
     font-size: 3.5rem;
     font-weight: bold;
+}
+
+.cells {
+    display: grid;
+    position: absolute;
+    height: 87%;
+    width: 98%;
+    top: 15px;
+    left: 15px;
+    /* grid-template-areas:
+        'row-1'
+        'row-2'
+        'row-3'
+        'row-4'
+        'row-5'
+        'row-6'; */
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-row-gap: 15px;
+    /* grid-column-gap: 0px; */
+    justify-content: center;
+    align-items: center;
+}
+
+.row-1 {
+    /* grid-area: row-1; */
+    height: 70px;
+    width: 75px;
+}
+
+.row-2 {
+    /* grid-area: row-2; */
+    height: 70px;
+    width: 75px;
+}
+
+.row-3 {
+    /* grid-area: row-3; */
+    height: 70px;
+    width: 75px;
+}
+
+.row-4 {
+    /* grid-area: row-4; */
+    height: 70px;
+    width: 75px;
+}
+
+.row-5 {
+    /* grid-area: row-5; */
+    height: 70px;
+    width: 75px;
+}
+
+.row-6 {
+    /* grid-area: row-6; */
+    height: 70px;
+    width: 75px;
 }
