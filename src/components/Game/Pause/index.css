@@ -1,20 +1,88 @@
 .pause-menu {
-    height: 30.688rem;
     position: relative;
-    width: 30rem;
     background-color: rgba(121,69,255,1);
     bottom: 20px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    user-select: none;
+}
+
+.pause-menu, .pause-menu-b {
+    height: 30.688rem;
+    width: 30rem;
     border: 3px solid black;
     border-radius: 40px;
-    z-index: 1;
 }
 
 .pause-menu-b {
-    height: 30.688rem;
     position: absolute;
-    width: 30rem;
     background-color: rgb(0, 0, 0);
     bottom: 10px;
+}
+
+.pause {
+    color: white;
+    font-size: 3.5rem;
+}
+
+.pause-continue {
+    color: black;
+    background-color: rgb(255, 255, 255);
+}
+
+.pause-restart {
+    color: black;
+    background-color: rgb(255, 255, 255);
+}
+
+.pause-quit {
+    color: white;
+    background-color: hsla(347, 97%,70%,1);
+    margin-bottom: 20px;
+}
+
+.pause-quit, .pause-restart, .pause-continue {
+    font-size: 1.5rem;
+    height: 4.5rem;
+    width: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 3px solid black;
-    border-radius: 40px;
+    border-radius: 20px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.pause-restart:hover, .pause-continue:hover {
+    background-color: rgb(230, 227, 227);
+}
+
+.pause-quit:hover {
+    background-color: rgb(249, 88, 123);
+}
+
+
+.pause-continue-b, .pause-restart-b, .pause-quit-b {
+    position: absolute;
+    height: 4.5rem;
+    width: 25rem;
+    background-color: black;
+    border: 3px solid black;
+    border-radius: 30px;  
+}
+
+.pause-continue-b{
+    top: 150px;
+}
+
+.pause-restart-b{
+    bottom: 150px;
+}
+
+.pause-quit-b{
+    bottom: 40px;
 }

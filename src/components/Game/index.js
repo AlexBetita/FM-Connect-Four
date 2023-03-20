@@ -19,7 +19,7 @@ const Game = () => {
     const [ player1Score, setPlayer1Score ] = useState(0)
     const [ player2Score, setPlayer2Score ] = useState(0)
     const [ timer, setTimer ] = useState('30s')
-    const [ pause, setPause ] = useState(false)
+    const [ pause, setPause ] = useState(true)
 
     const handleKeyUp = useCallback((event) => {
         if (event.key === 'Escape') {
