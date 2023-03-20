@@ -87,14 +87,6 @@ const GameBoard = ({timer, currentPlayer, setTimer}) => {
 
     const dropCounter = () => {
         let droppedCounter = false
-        // cellsRef.current[column].forEach(async (e) => {
-        //     if(!e.firstChild.src && !droppedCounter){
-        //         e.firstChild.src = counter
-        //         droppedCounter = true
-        //         if (counter === counterRed) await setCounter(counterYellow)
-        //         else await setCounter(counterRed)
-        //     }
-        // })
         const columnLength = cellsRef.current[column].length
         for(let i = columnLength - 1; i >= 0; i--){
             const currentCell = cellsRef.current[column][i]

@@ -1,0 +1,20 @@
+.pause-menu {
+    height: 30.688rem;
+    position: relative;
+    width: 30rem;
+    background-color: rgba(121,69,255,1);
+    bottom: 20px;
+    border: 3px solid black;
+    border-radius: 40px;
+    z-index: 1;
+}
+
+.pause-menu-b {
+    height: 30.688rem;
+    position: absolute;
+    width: 30rem;
+    background-color: rgb(0, 0, 0);
+    bottom: 10px;
+    border: 3px solid black;
+    border-radius: 40px;
+}
