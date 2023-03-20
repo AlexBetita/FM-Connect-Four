@@ -40,15 +40,16 @@ const Game = () => {
                 <div className='game-inner'>
 
                     <div className='game-menu'>
-                        <Player score={player1Score} playerIcon={playerOne}/>
+                        <Player score={player1Score} playerIcon={playerOne} player={'PLAYER 1'}/>
                         
                         <GameBoard timer={timer} 
                                 currentPlayer={currentPlayer}
                                 setTimer={setTimer}
                                 pause={pause}
+                                setCurrentPlayer={setCurrentPlayer}
                                 />
 
-                        <Player score={player2Score} playerIcon={playerTwo}/>
+                        <Player score={player2Score} playerIcon={playerTwo} player={'PLAYER 2'}/>
                     </div>
                 </div>
                 <div className='game-bottom-neutral'></div>

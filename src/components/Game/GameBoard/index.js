@@ -14,7 +14,7 @@ import markerYellow from '../../../assets/images/marker-yellow-2.svg'
 import turnBackgroundRed from '../../../assets/images/turn-background-red.svg'
 import turnBackgroundYellow from '../../../assets/images/turn-background-yellow.svg'
 
-const GameBoard = ({timer, currentPlayer, setTimer, pause}) => {
+const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer}) => {
 
     const navigate = useNavigate()
 
@@ -114,6 +114,7 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause}) => {
                     time.current.style.color = 'black'
                     playerTurn.current.style.color = 'black'
                     setTimer('30s')
+                    setCurrentPlayer(`PLAYER 2'S TURN`)
                 }
                 else {
                     setCounter(counterRed)
@@ -122,6 +123,7 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause}) => {
                     time.current.style.color = 'white'
                     playerTurn.current.style.color = 'white'
                     setTimer('30s')
+                    setCurrentPlayer(`PLAYER 1'S TURN`)
                 }
             }
         }
