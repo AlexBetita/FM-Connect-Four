@@ -1,5 +1,5 @@
 import { useNavigation } from 'react-router-dom';
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 
 import Player from './Player';
 import GameBoard from './GameBoard';
@@ -17,6 +17,8 @@ import turnBackgroundRed from '../../assets/images/turn-background-red.svg'
 import turnBackgroundYellow from '../../assets/images/turn-background-yellow.svg'
 
 const Game = () => {
+
+    const gameBottomRef = useRef()
 
     const [ currentPlayer, setCurrentPlayer ] = useState(`PLAYER 1'S TURN`)
     const [ player1Score, setPlayer1Score ] = useState(0)
@@ -63,12 +65,13 @@ const Game = () => {
                                 setCurrentPlayer={setCurrentPlayer}
                                 setPlayer1Score={setPlayer1Score}
                                 setPlayer2Score={setPlayer2Score}
+                                gameBottomRef={gameBottomRef}
                                 />
 
                         <Player score={player2Score} playerIcon={player2Icon} player={'PLAYER 2'}/>
                     </div>
                 </div>
-                <div className='game-bottom-neutral'></div>
+                <div className='game-bottom-neutral' ref={gameBottomRef}></div>
             </div>
             {pause &&
                 <Modal onClose={()=> setPause(false)}>

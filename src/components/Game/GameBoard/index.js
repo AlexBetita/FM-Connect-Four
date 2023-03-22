@@ -9,15 +9,15 @@ import './index.css'
 import boardBlack from '../../../assets/images/board-layer-black-large.svg'
 import boardWhite from '../../../assets/images/board-layer-white-large.svg'
 import cfgLogo from '../../../assets/images/logo.svg'
-import counterRed from '../../../assets/images/counter-red-large.svg'
-import counterYellow from '../../../assets/images/counter-yellow-large.svg'
+import counterRed from '../../../assets/images/counter-red-large-shadowless.svg'
+import counterYellow from '../../../assets/images/counter-yellow-large-shadowless.svg'
 import markerRed from '../../../assets/images/marker-red-2.svg'
 import markerYellow from '../../../assets/images/marker-yellow-2.svg'
 import turnBackgroundRed from '../../../assets/images/turn-background-red.svg'
 import turnBackgroundYellow from '../../../assets/images/turn-background-yellow.svg'
 
 const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer, 
-                    setPlayer1Score, setPlayer2Score}) => {
+                    setPlayer1Score, setPlayer2Score, gameBottomRef}) => {
 
     const navigate = useNavigate()
 
@@ -50,6 +50,16 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
             two === three &&
             three === four){
              setWinner(one)
+             whiteBoardRef.current.style.pointerEvents = 'unset'
+             blackBoardRef.current.style.pointerEvents = 'unset'
+             if(one === 'red') {
+                setPlayer1Score(prevScore => prevScore + 1)
+                gameBottomRef.current.style.backgroundColor = 'hsla(347,97%,70%,1)'
+            }
+             else {
+                setPlayer2Score(prevScore => prevScore + 1)
+                gameBottomRef.current.style.backgroundColor = 'hsla(41,100%,70%,1)'
+            }
              return true
          }
     }
@@ -174,12 +184,23 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
         if(!pause && !timerInterval){
             timerInterval = interValGenerator()
         }
+        
+        const currentTimer = timer.slice(0, timer.length - 1)
 
-        if(winner){
+        if(currentTimer === '0' && !winner){
             whiteBoardRef.current.style.pointerEvents = 'unset'
             blackBoardRef.current.style.pointerEvents = 'unset'
-            if(winner === 'red') setPlayer1Score(prevScore => prevScore + 1)
-            else setPlayer2Score(prevScore => prevScore + 1)
+            if(currentPlayer.split(' ')[1][0] === '2') {
+                setPlayer1Score(prevScore => prevScore + 1)
+                setWinner('red')
+                gameBottomRef.current.style.backgroundColor = 'hsla(347,97%,70%,1)'
+            }
+            else {
+                setPlayer2Score(prevScore => prevScore + 1)
+                setWinner('yellow')
+                gameBottomRef.current.style.backgroundColor = 'hsla(41,100%,70%,1)'
+            }
+            setTimer('-1s')
             clearInterval(timerInterval)
         }
 
