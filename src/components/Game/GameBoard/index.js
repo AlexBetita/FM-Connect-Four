@@ -101,6 +101,57 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
 
             }
         }
+
+        // diagonally
+        for(let c = 1; c <= 4; c++){
+            const columnOne = cellsRef.current[c]
+            const columnTwo = cellsRef.current[c+1]
+            const columnThree = cellsRef.current[c+2]
+            const columnFour = cellsRef.current[c+3]
+
+            for(let r = 5; r >= 3; r--){
+                const oneRowColumn = columnOne[r]
+                const cellOneColor = oneRowColumn.firstChild.classList.value.split(' ')[1]
+
+                if(cellOneColor){
+                    const twoRowColumn = columnTwo[r-1]
+                    const threeRowColumn = columnThree[r-2]
+                    const fourRowColumn = columnFour[r-3]
+
+                    const cellTwoColor = twoRowColumn.firstChild.classList.value.split(' ')[1]
+                    const cellThreeColor = threeRowColumn.firstChild.classList.value.split(' ')[1]
+                    const cellFourColor = fourRowColumn.firstChild.classList.value.split(' ')[1]
+
+                    if(colorChecker(cellOneColor, cellTwoColor, cellThreeColor, cellFourColor)) return
+                }
+            }
+        }
+
+        // anti diagonally
+        for(let c = 1; c <= 4; c++){
+            const columnOne = cellsRef.current[c]
+            const columnTwo = cellsRef.current[c+1]
+            const columnThree = cellsRef.current[c+2]
+            const columnFour = cellsRef.current[c+3]
+
+            for(let r = 0; r < columnOne.length - 3; r++){
+                const oneRowColumn = columnOne[r]
+                const cellOneColor = oneRowColumn.firstChild.classList.value.split(' ')[1]
+
+                if(cellOneColor){
+                    const twoRowColumn = columnTwo[r+1]
+                    const threeRowColumn = columnThree[r+2]
+                    const fourRowColumn = columnFour[r+3]
+
+                    const cellTwoColor = twoRowColumn.firstChild.classList.value.split(' ')[1]
+                    const cellThreeColor = threeRowColumn.firstChild.classList.value.split(' ')[1]
+                    const cellFourColor = fourRowColumn.firstChild.classList.value.split(' ')[1]
+
+                    if(colorChecker(cellOneColor, cellTwoColor, cellThreeColor, cellFourColor)) return
+                }
+            }
+        }
+
     }
 
     const interValGenerator = () => {
