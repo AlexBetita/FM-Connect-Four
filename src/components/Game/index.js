@@ -47,7 +47,7 @@ const Game = () => {
         return () => {
             window.removeEventListener('keyup', handleKeyUp);
         };
-    }, [handleKeyUp, pause]);
+    }, [handleKeyUp, pause, player1Score, player2Score]);
 
     return (<>
             <div className='game-background'>
@@ -61,6 +61,8 @@ const Game = () => {
                                 setTimer={setTimer}
                                 pause={pause}
                                 setCurrentPlayer={setCurrentPlayer}
+                                setPlayer1Score={setPlayer1Score}
+                                setPlayer2Score={setPlayer2Score}
                                 />
 
                         <Player score={player2Score} playerIcon={player2Icon} player={'PLAYER 2'}/>

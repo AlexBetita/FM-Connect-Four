@@ -16,7 +16,8 @@ import markerYellow from '../../../assets/images/marker-yellow-2.svg'
 import turnBackgroundRed from '../../../assets/images/turn-background-red.svg'
 import turnBackgroundYellow from '../../../assets/images/turn-background-yellow.svg'
 
-const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer}) => {
+const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer, 
+                    setPlayer1Score, setPlayer2Score}) => {
 
     const navigate = useNavigate()
 
@@ -100,6 +101,8 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer}) =>
         if(winner){
             whiteBoardRef.current.style.pointerEvents = 'unset'
             blackBoardRef.current.style.pointerEvents = 'unset'
+            if(winner === 'red') setPlayer1Score(prevScore => prevScore + 1)
+            else setPlayer2Score(prevScore => prevScore + 1)
             clearInterval(timerInterval)
         }
 

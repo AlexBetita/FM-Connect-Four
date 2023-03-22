@@ -1,13 +1,10 @@
 .player-box {
     position: relative;
+    cursor: default;
 }
 
 .player {
-    height: 10rem;
-    width: 8.813rem;
     background-color: white;
-    border: 3px solid black;
-    border-radius: 25px;
     z-index: 2;
     position: relative;
     display: flex;
@@ -16,13 +13,16 @@
     align-items: center;
 }
 
-.player-b {
-    position: absolute;
+.player, .player-b {
     height: 10rem;
     width: 8.813rem;
-    background-color: black;
     border: 3px solid black;
     border-radius: 25px;
+}
+
+.player-b {
+    position: absolute;
+    background-color: black;
     z-index: 1;
     bottom: -10px;
 }
