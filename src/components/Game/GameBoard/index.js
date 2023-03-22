@@ -45,6 +45,15 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
         '7' : []
     })
 
+    const colorChecker = (one, two, three, four) => {
+        if(one === two && 
+            two === three &&
+            three === four){
+             setWinner(one)
+             return true
+         }
+    }
+
     const checkWinner = () => {
         // horizontally
         for(let c = 1; c <= 4; c++){
@@ -66,13 +75,30 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
                     const cellThreeColor = cellThreeElement.firstChild.classList.value.split(' ')[1]
                     const cellFourColor = cellFourElement.firstChild.classList.value.split(' ')[1]
 
-                    if(cellOneColor === cellTwoColor && 
-                       cellTwoColor === cellThreeColor &&
-                       cellThreeColor === cellFourColor){
-                        setWinner(cellOneColor)
-                        return
-                    }
+                    if(colorChecker(cellOneColor, cellTwoColor, cellThreeColor, cellFourColor)) return
                 }
+            }
+        }
+
+        // vertical
+        for(let c = 1; c <= 7; c++){
+            const currentColumn = cellsRef.current[c]
+            for(let r = currentColumn.length - 4; r >= 0; r--){
+                const rowOne = currentColumn[r]
+                const cellOneColor = rowOne.firstChild.classList.value.split(' ')[1]
+
+                if(cellOneColor) {
+                    const rowTwo = currentColumn[r+1]
+                    const rowThree = currentColumn[r+2]
+                    const rowFour = currentColumn[r+3]
+    
+                    const cellTwoColor = rowTwo.firstChild.classList.value.split(' ')[1]
+                    const cellThreeColor = rowThree.firstChild.classList.value.split(' ')[1]
+                    const cellFourColor = rowFour.firstChild.classList.value.split(' ')[1]
+    
+                    if(colorChecker(cellOneColor, cellTwoColor, cellThreeColor, cellFourColor)) return
+                }
+
             }
         }
     }
