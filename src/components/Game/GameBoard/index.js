@@ -2,6 +2,8 @@ import { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import React from 'react'
 
+import Winner from '../Winner'
+
 import './index.css'
 
 import boardBlack from '../../../assets/images/board-layer-black-large.svg'
@@ -27,6 +29,7 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer}) =>
     const [ counter, setCounter ] = useState(counterRed)
     const [ marker, setMarker ] = useState(markerRed)
     const [ turn, setTurn ] = useState(turnBackgroundRed)
+    const [ winner, setWinner ] = useState('')
     
 
     const cellsRef = useRef({
@@ -38,6 +41,38 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer}) =>
         '6' : [],
         '7' : []
     })
+
+    const checkWinner = () => {
+        // horizontally
+        for(let c = 1; c <= 4; c++){
+            const columnOne = cellsRef.current[c]
+            const columnTwo = cellsRef.current[c+1]
+            const columnThree = cellsRef.current[c+2]
+            const columnFour = cellsRef.current[c+3]
+
+            for(let r = 0; r < columnOne.length; r++){
+                const cellOneElement = columnOne[r]
+
+                const cellOneColor = cellOneElement.firstChild.classList.value.split(' ')[1]
+                if (cellOneColor){
+                    const cellTwoElement = columnTwo[r]
+                    const cellThreeElement = columnThree[r]
+                    const cellFourElement = columnFour[r]
+    
+                    const cellTwoColor = cellTwoElement.firstChild.classList.value.split(' ')[1]
+                    const cellThreeColor = cellThreeElement.firstChild.classList.value.split(' ')[1]
+                    const cellFourColor = cellFourElement.firstChild.classList.value.split(' ')[1]
+
+                    if(cellOneColor === cellTwoColor && 
+                       cellTwoColor === cellThreeColor &&
+                       cellThreeColor === cellFourColor){
+                        setWinner(cellOneColor)
+                        return
+                    }
+                }
+            }
+        }
+    }
 
     const interValGenerator = () => {
         return setInterval(()=> {
@@ -58,6 +93,10 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer}) =>
 
         if(!pause && !timerInterval){
             timerInterval = interValGenerator()
+        }
+
+        if(winner){
+            clearInterval(timerInterval)
         }
 
         return () => {
@@ -108,6 +147,7 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer}) =>
                 currentCell.firstChild.src = counter
                 droppedCounter = true
                 if (counter === counterRed) {
+                    currentCell.firstChild.classList.add('red')
                     setCounter(counterYellow)
                     setMarker(markerYellow)
                     setTurn(turnBackgroundYellow)
@@ -117,6 +157,7 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer}) =>
                     setCurrentPlayer(`PLAYER 2'S TURN`)
                 }
                 else {
+                    currentCell.firstChild.classList.add('yellow')
                     setCounter(counterRed)
                     setMarker(markerRed)
                     setTurn(turnBackgroundRed)
@@ -127,6 +168,7 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer}) =>
                 }
             }
         }
+        checkWinner()
     }
 
     const createCells = () => {
@@ -195,16 +237,19 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer}) =>
 
                     <img style={{'pointerEvents': 'none'}} className='game-board-black' src={boardBlack}/>
 
-
-                    <div className='turn-background'>
-                        <img style={{'position' : 'absolute'}} src={turn}/>
-                        <div className='current-player' ref={playerTurn}>
-                            {currentPlayer}
-                        </div>
-                        <div className='game-timer'ref={time}>
-                            {timer}
-                        </div>
-                    </div>
+                    {
+                        !winner ?
+                        <div className='turn-background'>
+                            <img style={{'position' : 'absolute'}} src={turn}/>
+                            <div className='current-player' ref={playerTurn}>
+                                {currentPlayer}
+                            </div>
+                            <div className='game-timer'ref={time}>
+                                {timer}
+                            </div>
+                        </div> :
+                        <Winner winner={winner}/>
+                    }
                 </div>
             </div>
         </>

@@ -1,0 +1,52 @@
+.winner-block, .winner-block-b {
+    width: 17.813rem;
+    height: 10rem;
+    border: 3px solid black;
+    border-radius: 25px;
+}
+
+.winner-block {
+    position: relative;
+    background-color: white;
+    z-index: 3;
+    bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.winner-block-b{
+    position: absolute;
+    background-color: black;
+    z-index: 2;
+    bottom: 40px;
+}
+
+.winning-player {
+    font-size: 1rem;
+    cursor: default;
+}
+
+.win {
+    font-size: 3.5rem;
+    font-weight: bold;
+    cursor: default;
+}
+
+.play-again-button {
+    font-size: 1.rem;
+    color: white;
+    background-color: hsla(257, 67%, 51%, 1);
+    width: 8.125rem;
+    height: 2.438rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.play-again-button:hover {
+    background-color: rgb(78, 25, 211);
+}
