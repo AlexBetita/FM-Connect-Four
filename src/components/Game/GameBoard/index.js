@@ -23,6 +23,8 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer}) =>
     const markerRef = useRef();
     const time = useRef()
     const playerTurn = useRef()
+    const whiteBoardRef = useRef();
+    const blackBoardRef = useRef();
 
     const [ column, setColumn ] = useState('4')
     const [ row, setRow ] = useState('1')
@@ -96,6 +98,8 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer}) =>
         }
 
         if(winner){
+            whiteBoardRef.current.style.pointerEvents = 'unset'
+            blackBoardRef.current.style.pointerEvents = 'unset'
             clearInterval(timerInterval)
         }
 
@@ -231,11 +235,11 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer}) =>
                                 createCells().map(e => e)
                             }
                         </div>
-                        <img style={{'pointerEvents': 'none'}} className='game-board-white' src={boardWhite}/>
+                        <img ref={whiteBoardRef} className='game-board-white' src={boardWhite} draggable={false}/>
                     </div>
 
 
-                    <img style={{'pointerEvents': 'none'}} className='game-board-black' src={boardBlack}/>
+                    <img ref={blackBoardRef} className='game-board-black' src={boardBlack} draggable={false}/>
 
                     {
                         !winner ?

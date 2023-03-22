@@ -23,12 +23,14 @@
 .game-board-white {
     z-index: 2;
     position: relative;
+    pointer-events: none;
 }
 
 .game-board-black {
     position: absolute;
     z-index: 1;
     top: 0px;
+    pointer-events: none;
 }
 
 .game-board-top{
