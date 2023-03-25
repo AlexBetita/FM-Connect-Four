@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import './index.css'
 
-const Pause = ({setPause}) => {
+const Pause = ({setPause, restart, resetStyle}) => {
 
     const navigate = useNavigate()
 
@@ -67,7 +67,7 @@ const Pause = ({setPause}) => {
                 onMouseUp={(e) => {
                     checkButtonActive(e, 'continue')
                 }}
-                onClick={(e) => {
+                onClick={() => {
                     handeleNavigate('continue')
                 }}
             >
@@ -89,8 +89,10 @@ const Pause = ({setPause}) => {
                 onMouseUp={(e) => {
                     checkButtonActive(e, 'restart')
                 }}
-                onClick={(e) => {
-                    handeleNavigate('restart')
+                onClick={() => {
+                    resetStyle()
+                    restart()
+                    setPause(prevPause => !prevPause)
                 }}
             >
                 RESTART
@@ -111,7 +113,7 @@ const Pause = ({setPause}) => {
                 onMouseUp={(e) => {
                     checkButtonActive(e, 'quit')
                 }}
-                onClick={(e) => {
+                onClick={() => {
                     handeleNavigate('quit')
                 }}
             >

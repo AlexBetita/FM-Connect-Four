@@ -3,8 +3,6 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 
 import Player from './Player';
 import GameBoard from './GameBoard';
-import { Modal } from '../../context/Modal';
-import Pause from '../Game/Pause'
 
 import './index.css'
 
@@ -12,9 +10,6 @@ import playerOne from '../../assets/images/player-one.svg'
 import playerTwo from '../../assets/images/player-two.svg'
 import flatSmile from '../../assets/images/cpu.svg'
 import shock from '../../assets/images/shock.svg'
-
-import turnBackgroundRed from '../../assets/images/turn-background-red.svg'
-import turnBackgroundYellow from '../../assets/images/turn-background-yellow.svg'
 
 const Game = () => {
 
@@ -85,6 +80,7 @@ const Game = () => {
                                 currentPlayer={currentPlayer}
                                 setTimer={setTimer}
                                 pause={pause}
+                                setPause={setPause}
                                 setCurrentPlayer={setCurrentPlayer}
                                 setPlayer1Score={setPlayer1Score}
                                 setPlayer2Score={setPlayer2Score}
@@ -97,11 +93,6 @@ const Game = () => {
                 </div>
                 <div className='game-bottom-neutral' ref={gameBottomRef}></div>
             </div>
-            {pause &&
-                <Modal onClose={()=> setPause(false)}>
-                    <Pause setPause={setPause}/>
-                </Modal>
-            }
     </>)
 }
 

@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import React from 'react'
 
 import Winner from '../Winner'
+import Pause from '../Pause'
+import { Modal } from '../../../context/Modal';
 
 import './index.css'
 
@@ -17,8 +19,10 @@ import turnBackgroundRed from '../../../assets/images/turn-background-red.svg'
 import turnBackgroundYellow from '../../../assets/images/turn-background-yellow.svg'
 import ovalWhite from '../../../assets/images/oval-white.svg'
 
-const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer, 
-                    setPlayer1Score, setPlayer2Score, gameBottomRef, restart}) => {
+
+const GameBoard = ({timer, currentPlayer, setTimer, pause, 
+                    setCurrentPlayer, setPlayer1Score, setPlayer2Score,
+                    gameBottomRef, restart, setPause}) => {
 
     const navigate = useNavigate()
 
@@ -232,7 +236,7 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
         if(pause){
             clearInterval(timerInterval)
             timerInterval = ''
-        } 
+        }
 
         if(!pause && !timerInterval){
             timerInterval = interValGenerator()
@@ -416,6 +420,16 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
                     }
                 </div>
             </div>
+            {pause &&
+                <Modal onClose={()=> setPause(false)}>
+                    <Pause setPause={setPause} restart={()=> {
+                        restart(setColumn, setRow, setCounter, counterRed, 
+                            setMarker, markerRed, setTurn, turnBackgroundRed, setWinner)
+                        }}
+                        resetStyle={resetStyle}
+                    />
+                </Modal>
+            }
         </>
     )
 }
