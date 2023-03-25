@@ -35,3 +35,13 @@
     height: 100%;
 }
 
+
+@media screen and (max-width: 768px) and (max-height: 1024px) {
+    .game-menu {
+         flex-direction: column;
+    }
+
+    .game-bottom-neutral{
+        height: 14.625rem;
+    }
+}

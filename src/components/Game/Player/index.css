@@ -1,4 +1,9 @@
-.player-box {
+.player-box-1 {
+    position: relative;
+    cursor: default;
+}
+
+.player-box-2 {
     position: relative;
     cursor: default;
 }
@@ -38,3 +43,24 @@
     font-size: 3.5rem;
     font-weight: bold;
 }
+
+
+
+@media screen and (max-width: 768px) and (max-height: 1024px){
+    .player-box-1 {
+        position: absolute;
+        top: 110px;
+        left: 0px;
+    }
+
+    .player-box-2 {
+        position: absolute;
+        top: 110px;
+        right: 0px;
+    }
+
+    .player-box-1 > div, .player-box-2 > div{
+        width: 17rem;
+        height: 6.25rem;
+    }
+ }

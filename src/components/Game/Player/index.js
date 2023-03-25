@@ -4,7 +4,7 @@ const Player = ({score, playerIcon, player}) => {
 
     return (
         <>
-            <div className='player-box'>
+            <div className={`player-box-${player[player.length - 1]}`}>
                 <div className='player'>
                     <img className='player-image' src={playerIcon} alt='player'/>
                     <div style={{'fontSize' : '1.25rem', 'paddingTop' :'20px'}}> {player} </div>
