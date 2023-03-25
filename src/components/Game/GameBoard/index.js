@@ -351,6 +351,7 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause,
                                             }
                                         }}
                                         onMouseEnter={moveMarker}
+                                        onTouchStart={moveMarker}
                                         onClick={dropCounter}
                                     >
                                     <img 
