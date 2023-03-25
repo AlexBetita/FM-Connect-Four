@@ -15,9 +15,10 @@ import markerRed from '../../../assets/images/marker-red-2.svg'
 import markerYellow from '../../../assets/images/marker-yellow-2.svg'
 import turnBackgroundRed from '../../../assets/images/turn-background-red.svg'
 import turnBackgroundYellow from '../../../assets/images/turn-background-yellow.svg'
+import ovalWhite from '../../../assets/images/oval-white.svg'
 
 const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer, 
-                    setPlayer1Score, setPlayer2Score, gameBottomRef}) => {
+                    setPlayer1Score, setPlayer2Score, gameBottomRef, restart}) => {
 
     const navigate = useNavigate()
 
@@ -45,6 +46,24 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
         '7' : []
     })
 
+    const resetStyle = () => {
+        gameBottomRef.current.style.backgroundColor = 'hsla(257, 67%, 51%, 1)'
+        whiteBoardRef.current.style.pointerEvents = 'none'
+        blackBoardRef.current.style.pointerEvents = 'none'
+
+        for(let c = 1; c <= 7; c++){
+            const currentColumn = cellsRef.current[c]
+            for(let r = 0; r < currentColumn.length; r++){
+                const currentRow = currentColumn[r]
+                const children = currentRow.children
+                children[0].classList.remove('yellow')
+                children[0].classList.remove('red')
+                children[0].removeAttribute('src')
+                if(children[1]) children[1].remove()
+            }
+        }
+    }
+
     const colorChecker = (one, two, three, four) => {
         if(one === two && 
             two === three &&
@@ -62,6 +81,17 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
             }
              return true
          }
+    }
+
+    const addWhiteOval = (...elements) => {
+        for(let i = 0; i < elements.length; i++){
+            const currentElement = elements[i]
+            const imgElement = document.createElement('img')
+            imgElement.classList.add('oval')
+            imgElement.src = ovalWhite
+            imgElement.alt = 'no-oval'
+            currentElement.appendChild(imgElement)
+        }
     }
 
     const checkWinner = () => {
@@ -85,7 +115,10 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
                     const cellThreeColor = cellThreeElement.firstChild.classList.value.split(' ')[1]
                     const cellFourColor = cellFourElement.firstChild.classList.value.split(' ')[1]
 
-                    if(colorChecker(cellOneColor, cellTwoColor, cellThreeColor, cellFourColor)) return
+                    if(colorChecker(cellOneColor, cellTwoColor, cellThreeColor, cellFourColor)) {
+                        addWhiteOval(cellOneElement, cellTwoElement, cellThreeElement, cellFourElement)
+                        return
+                    }
                 }
             }
         }
@@ -106,7 +139,10 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
                     const cellThreeColor = rowThree.firstChild.classList.value.split(' ')[1]
                     const cellFourColor = rowFour.firstChild.classList.value.split(' ')[1]
     
-                    if(colorChecker(cellOneColor, cellTwoColor, cellThreeColor, cellFourColor)) return
+                    if(colorChecker(cellOneColor, cellTwoColor, cellThreeColor, cellFourColor)) {
+                        addWhiteOval(rowOne, rowTwo, rowThree, rowFour)
+                        return
+                    }
                 }
 
             }
@@ -132,7 +168,10 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
                     const cellThreeColor = threeRowColumn.firstChild.classList.value.split(' ')[1]
                     const cellFourColor = fourRowColumn.firstChild.classList.value.split(' ')[1]
 
-                    if(colorChecker(cellOneColor, cellTwoColor, cellThreeColor, cellFourColor)) return
+                    if(colorChecker(cellOneColor, cellTwoColor, cellThreeColor, cellFourColor)) {
+                        addWhiteOval(oneRowColumn, twoRowColumn, threeRowColumn, fourRowColumn)
+                        return
+                    }
                 }
             }
         }
@@ -157,7 +196,10 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
                     const cellThreeColor = threeRowColumn.firstChild.classList.value.split(' ')[1]
                     const cellFourColor = fourRowColumn.firstChild.classList.value.split(' ')[1]
 
-                    if(colorChecker(cellOneColor, cellTwoColor, cellThreeColor, cellFourColor)) return
+                    if(colorChecker(cellOneColor, cellTwoColor, cellThreeColor, cellFourColor)) {
+                        addWhiteOval(oneRowColumn, twoRowColumn, threeRowColumn, fourRowColumn)
+                        return
+                    }
                 }
             }
         }
@@ -299,6 +341,7 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
                                     <img 
                                         key={`counter-${currentRow}-${currentColumn}`}
                                         // src={counterRed}
+                                        // alt='no-counter'
                                         className='cell-image'
                                     />
                                 </div>
@@ -320,15 +363,20 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
                     </div>
                     
                     <img style={{'height' : '52px', 'width' : '52px', 'paddingLeft': '21px'}} 
+                        alt='no-logo'
                         src={cfgLogo}/>
 
-                    <div className='restart'>
+                    <div className='restart' onClick={()=>{
+                        resetStyle()
+                        restart(setColumn, setRow, setCounter, counterRed, 
+                                setMarker, markerRed, setTurn, turnBackgroundRed, setWinner)
+                    }}>
                         RESTART
                     </div>
                 </div>
 
                 <div className='game-board'>
-                    <img className='game-marker' src={marker} ref={markerRef}/>
+                    <img className='game-marker' src={marker} ref={markerRef} alt='no-gamemarker'/>
                     <div style={{'position' : 'relative'}}>
 
                         <div className='cells'>
@@ -336,16 +384,16 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
                                 createCells().map(e => e)
                             }
                         </div>
-                        <img ref={whiteBoardRef} className='game-board-white' src={boardWhite} draggable={false}/>
+                        <img ref={whiteBoardRef} className='game-board-white' src={boardWhite} draggable={false} alt='no-whiteboard'/>
                     </div>
 
 
-                    <img ref={blackBoardRef} className='game-board-black' src={boardBlack} draggable={false}/>
+                    <img ref={blackBoardRef} className='game-board-black' src={boardBlack} draggable={false} alt='no-blackboard'/>
 
                     {
                         !winner ?
                         <div className='turn-background'>
-                            <img style={{'position' : 'absolute'}} src={turn}/>
+                            <img style={{'position' : 'absolute'}} src={turn} alt='no-turn'/>
                             <div className='current-player' ref={playerTurn}>
                                 {currentPlayer}
                             </div>

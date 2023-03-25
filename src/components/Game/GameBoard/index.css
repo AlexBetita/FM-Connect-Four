@@ -205,3 +205,9 @@
     z-index: 2;
     position: relative;
 }
+
+.oval {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}

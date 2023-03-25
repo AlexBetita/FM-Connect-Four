@@ -33,6 +33,19 @@ const Game = () => {
           setPause((prevPause) => !prevPause);
         }
       }, []);
+
+    const restart = (...args) => {
+        args[0](4)
+        args[1](1)
+        args[2](args[3])
+        args[4](args[5])
+        args[6](args[7])
+        args[8]('')
+        setCurrentPlayer(`PLAYER 1'S TURN`)
+        setPlayer1Score(0)
+        setPlayer2Score(0)
+        setTimer('30s')
+    }
     
     useEffect(() => {
 
@@ -66,6 +79,7 @@ const Game = () => {
                                 setPlayer1Score={setPlayer1Score}
                                 setPlayer2Score={setPlayer2Score}
                                 gameBottomRef={gameBottomRef}
+                                restart={restart}
                                 />
 
                         <Player score={player2Score} playerIcon={player2Icon} player={'PLAYER 2'}/>
