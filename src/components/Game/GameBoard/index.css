@@ -128,6 +128,7 @@
     /* grid-area: row-1; */
     height: 70px;
     width: 75px;
+
 }
 
 .row-2 {
@@ -140,26 +141,57 @@
     /* grid-area: row-3; */
     height: 70px;
     width: 75px;
+    top: 3px;
 }
 
 .row-4 {
     /* grid-area: row-4; */
     height: 70px;
     width: 75px;
+    top: 6px;
 }
 
 .row-5 {
     /* grid-area: row-5; */
     height: 70px;
     width: 75px;
+    top: 8px;
 }
 
 .row-6 {
     /* grid-area: row-6; */
     height: 70px;
     width: 75px;
+    top: 10px;
 }
 
+.col-1{
+    left: 20px;
+}
+
+.col-2{
+    left: 18px;
+}
+
+.col-3{
+    left: 16px;
+}
+
+.col-4{
+    left: 13px;
+}
+
+.col-5{
+    left: 11px;
+}
+
+.col-6{
+    left: 8px;
+}
+
+.col-7{
+    left: 7px;
+}
 /* .cell {
     z-index: 100;
 } */
@@ -171,4 +203,5 @@
 
 .cell {
     z-index: 2;
+    position: relative;
 }
