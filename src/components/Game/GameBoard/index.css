@@ -57,6 +57,12 @@
     background-color: rgb(78, 25, 211);
 }
 
+.game-logo-container {
+    height: 52px;
+    width: 52px;
+    padding-left: 14px;
+}
+
 .restart {
     background-color: hsla(257, 67%, 51%, 1);
     color: white;
@@ -218,5 +224,22 @@
          flex-direction: column;
          position: relative;
          top: 95px;
+    }
+
+    .game-board-top {
+        position: relative;
+        bottom: 30px;
+    }
+
+    .game-logo-container {
+        padding-left: 16px;
+    }
+
+    .restart {
+        padding: 0 21px;
+    }
+
+    .menu {
+        padding: 0 21px;
     }
 }

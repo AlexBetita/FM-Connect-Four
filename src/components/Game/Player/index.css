@@ -39,6 +39,11 @@
     top: -28px;
 }
 
+.player-text {
+    font-size : 1.25rem; 
+    padding-top : 20px;
+}
+
 .player-score {
     font-size: 3.5rem;
     font-weight: bold;
@@ -50,13 +55,39 @@
     .player-box-1 {
         position: absolute;
         top: 110px;
-        left: 0px;
+        left: 88px;
+    }
+
+    .player-box-1 .player-image {
+        top: 20px;
+        left: -25px;
+    }
+
+    .player-box-1 .player {
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .player-text{
+        padding-top: unset;
     }
 
     .player-box-2 {
         position: absolute;
         top: 110px;
-        right: 0px;
+        right: 88px;
+    }
+
+    .player-box-2 .player-image {
+        right: -25px;
+        top: 20px;
+    }
+
+    .player-box-2 .player {
+        flex-direction: row-reverse;
+        justify-content: space-evenly;
+        align-items: center;
     }
 
     .player-box-1 > div, .player-box-2 > div{

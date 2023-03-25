@@ -25,3 +25,9 @@
     border-radius: 10px;
     z-index: 99;
 }
+
+@media screen and (max-width: 768px) and (max-height: 1024px){
+  #modal {
+      bottom: -43px;
+  }
+}

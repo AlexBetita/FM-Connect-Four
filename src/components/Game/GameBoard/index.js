@@ -377,9 +377,10 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause,
                         MENU
                     </div>
                     
-                    <img style={{'height' : '52px', 'width' : '52px', 'paddingLeft': '21px'}} 
-                        alt='no-logo'
-                        src={cfgLogo}/>
+                    <div className='game-logo-container'>
+                        <img alt='no-logo'
+                            src={cfgLogo}/>
+                    </div>
 
                     <div className='restart' onClick={()=>{
                         resetStyle()
