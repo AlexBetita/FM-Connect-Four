@@ -1,6 +1,6 @@
 import './index.css'
 
-const Winner = ({winner}) => {
+const Winner = ({winner, playAgain}) => {
     return (<>
     
     <div className='winner-block'>
@@ -13,7 +13,7 @@ const Winner = ({winner}) => {
         <div className='win'>
             WINS
         </div>
-        <div className='play-again-button'>
+        <div className='play-again-button' onClick={playAgain}>
             PLAY AGAIN
         </div>
     </div>

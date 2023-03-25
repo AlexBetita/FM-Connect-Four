@@ -64,6 +64,17 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
         }
     }
 
+    const playAgain = () => {
+        resetStyle()
+        if(winner === 'red'){
+            restart(setColumn, setRow, setCounter, counterYellow, 
+                setMarker, markerYellow, setTurn, turnBackgroundYellow, setWinner, true, 'yellow')
+        } else {
+            restart(setColumn, setRow, setCounter, counterRed, 
+                setMarker, markerRed, setTurn, turnBackgroundRed, setWinner, true, 'red')
+        }
+    }
+
     const colorChecker = (one, two, three, four) => {
         if(one === two && 
             two === three &&
@@ -401,7 +412,7 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause, setCurrentPlayer,
                                 {timer}
                             </div>
                         </div> :
-                        <Winner winner={winner}/>
+                        <Winner winner={winner} playAgain={playAgain}/>
                     }
                 </div>
             </div>

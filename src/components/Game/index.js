@@ -41,10 +41,20 @@ const Game = () => {
         args[4](args[5])
         args[6](args[7])
         args[8]('')
-        setCurrentPlayer(`PLAYER 1'S TURN`)
-        setPlayer1Score(0)
-        setPlayer2Score(0)
-        setTimer('30s')
+        if(!args[9]){
+            setCurrentPlayer(`PLAYER 1'S TURN`)
+            setPlayer1Score(0)
+            setPlayer2Score(0)
+            setTimer('30s')
+        } else {
+            if(args[10] === 'red') {
+                setCurrentPlayer(`PLAYER 1'S TURN`)
+                setTimer('30s')
+            } else {
+                setCurrentPlayer(`PLAYER 2'S TURN`)
+                setTimer('30s')
+            }
+        }
     }
     
     useEffect(() => {
