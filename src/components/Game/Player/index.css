@@ -51,7 +51,11 @@
 
 
 
-@media screen and (max-width: 768px) and (max-height: 1024px){
+@media screen and 
+            (min-height: 813px) and 
+            (max-height: 1024px) and 
+            (min-width: 376px) and 
+            (max-width: 768px){
     .player-box-1 {
         position: absolute;
         top: 110px;

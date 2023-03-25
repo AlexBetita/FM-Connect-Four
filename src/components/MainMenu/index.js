@@ -49,7 +49,7 @@ const MainMenu = () => {
 
     return (
         <>
-            <div style={{'position' : 'relative'}}>
+            <div className='main-menu-container'>
                 <div className="main-menu">
                     <div className="main-menu-items">
                         <img src={cfgLogo} className="menu-logo"/>
