@@ -38,8 +38,8 @@ const Game = () => {
         args[8]('')
         if(!args[9]){
             setCurrentPlayer(`PLAYER 1'S TURN`)
-            setPlayer1Score(0)
-            setPlayer2Score(0)
+            // setPlayer1Score(0)
+            // setPlayer2Score(0)
             setTimer('30s')
         } else {
             if(args[10] === 'red') {

@@ -27,7 +27,7 @@ const GameRules = () => {
     return (
         <>
             <div className='game-rules-background'>
-                <div style={{'position' : 'relative'}}>
+                <div className='game-rules-container'>
 
                     <div className='game-rules-main'>
                         <div>
