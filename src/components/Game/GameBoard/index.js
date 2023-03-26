@@ -36,8 +36,8 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause,
     const whiteBoardRef = useRef();
     const blackBoardRef = useRef();
 
-	// const [ width, setWidth ] = useState(window.innerWidth)
-	// const [ height, setHeight ] = useState(window.innerHeight)
+	const [ width, setWidth ] = useState(window.innerWidth)
+	const [ height, setHeight ] = useState(window.innerHeight)
     const [ column, setColumn ] = useState('4')
     const [ row, setRow ] = useState('1')
     const [ counter, setCounter ] = useState(counterRed)
@@ -59,10 +59,10 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause,
         '7' : []
     })
 
-	// const handleWindowResize = useCallback((event) => {
-	// 	setHeight(window.innerHeight)
-	// 	setWidth(window.innerWidth)
-	// })
+	const handleWindowResize = useCallback((event) => {
+		setHeight(window.innerHeight)
+		setWidth(window.innerWidth)
+	})
 
     const resetStyle = () => {
         gameBottomRef.current.style.backgroundColor = 'hsla(257, 67%, 51%, 1)'
@@ -275,8 +275,11 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause,
             clearInterval(timerInterval)
         }
 
+		window.addEventListener('resize', handleWindowResize);
+
         return () => {
             clearInterval(timerInterval)
+			window.removeEventListener('resize', handleWindowResize);
         }
 
     },[timer, pause])
@@ -288,27 +291,53 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause,
     const moveMarker = (e) => {
         const currentColumn = e.target.className.split(' ')[1][4]
         const currentRow = e.target.className.split(' ')[0][4]
+		const isMobile = width > 375 && height > 812 ? false : true
+
         if (currentColumn === '4') {
             markerRef.current.style.left = 'unset'
             markerRef.current.style.right = 'unset'
         } else if (currentColumn === '1') {
-            markerRef.current.style.left = '32px'
+			if(isMobile){
+				markerRef.current.style.left = '9px'
+			} else {
+				markerRef.current.style.left = '32px'
+			}
             markerRef.current.style.right = '0px'
         } else if (currentColumn === '2'){
-            markerRef.current.style.left = '120px'
+			if(isMobile){
+				markerRef.current.style.left = '55px'
+			} else {
+				markerRef.current.style.left = '120px'
+			}
             markerRef.current.style.right = '0px'
         } else if (currentColumn === '3') {
-            markerRef.current.style.left = '208px'
+			if(isMobile) {
+				markerRef.current.style.left = '102px'
+			} else {
+				markerRef.current.style.left = '208px'
+			}
             markerRef.current.style.right = '0px'
         } else if (currentColumn === '7') {
+			if(isMobile){
+				markerRef.current.style.right = '9px'
+			} else {
+				markerRef.current.style.right = '32px'
+			}
             markerRef.current.style.left = 'unset'
-            markerRef.current.style.right = '32px'
         } else if (currentColumn === '6') {
+			if(isMobile){
+				markerRef.current.style.right = '55px'
+			} else {
+				markerRef.current.style.right = '120px'
+			}
             markerRef.current.style.left = 'unset'
-            markerRef.current.style.right = '120px'
         } else if (currentColumn === '5'){
+			if(isMobile){
+				markerRef.current.style.right = '102px'
+			} else {
+				markerRef.current.style.right = '210px'
+			}
             markerRef.current.style.left = 'unset'
-            markerRef.current.style.right = '210px'
         }
         setRow(currentRow)
         setColumn(currentColumn)
