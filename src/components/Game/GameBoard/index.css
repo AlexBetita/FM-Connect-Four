@@ -290,6 +290,10 @@
 		padding: 0 21px;
 	}
 
+	.turn-background {
+		bottom: 14px;
+	}
+
 	.cell-image {
 		height: 2.122rem;
 		/* width: 2.122rem; */

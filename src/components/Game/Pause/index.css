@@ -72,7 +72,7 @@
     width: 25rem;
     background-color: black;
     border: 3px solid black;
-    border-radius: 30px;  
+    border-radius: 30px;
 }
 
 .pause-continue-b{
@@ -85,4 +85,47 @@
 
 .pause-quit-b{
     bottom: 40px;
+}
+
+
+@media screen and
+        (max-width: 375px) and
+        (max-height: 812px) {
+
+		.pause-menu, .pause-menu-b {
+			font-weight: bold;
+			width: 20.938rem;
+			height: 27.313rem;
+		}
+
+		.pause-menu {
+			bottom: 4px;
+		}
+
+		.pause-menu-b {
+			bottom: -6px;
+		}
+
+		.pause-quit, .pause-restart, .pause-continue,
+		.pause-continue-b, .pause-restart-b, .pause-quit-b {
+			width: 18.438rem;
+			height: 4.5rem;
+			border-radius: 20px;
+		}
+
+		.pause-quit{
+			margin-bottom: unset;
+		}
+
+		.pause-continue-b {
+			top: 132px;
+		}
+
+		.pause-restart-b {
+			bottom: 122px;
+		}
+
+		.pause-quit-b {
+			bottom: 18px;
+		}
 }

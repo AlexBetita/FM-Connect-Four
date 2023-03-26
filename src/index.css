@@ -35,5 +35,6 @@ html, body{
 
 	#root {
 		overflow: hidden;
+		font-weight: bold;
 	}
 }
