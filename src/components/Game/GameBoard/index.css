@@ -247,3 +247,14 @@
         padding: 0 21px;
     }
 }
+
+
+@media screen and 
+        (max-width: 375px) and 
+        (max-height: 812px) {
+        
+        
+    .game-board-body {
+        padding: unset;
+    }
+}

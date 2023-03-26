@@ -49,3 +49,10 @@
         height: 14.625rem;
     }
 }
+
+@media screen and 
+        (max-width: 375px) and 
+        (max-height: 812px) {
+        
+        
+}
