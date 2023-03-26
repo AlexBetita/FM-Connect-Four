@@ -219,10 +219,10 @@
 }
 
 
-@media screen and 
-        (min-height: 813px) and 
-        (max-height: 1024px) and 
-        (min-width: 376px) and 
+@media screen and
+        (min-height: 813px) and
+        (max-height: 1024px) and
+        (min-width: 376px) and
         (max-width: 768px){
     .game-board {
          flex-direction: column;
@@ -249,12 +249,119 @@
 }
 
 
-@media screen and 
-        (max-width: 375px) and 
+@media screen and
+        (max-width: 375px) and
         (max-height: 812px) {
-        
-        
+
+
     .game-board-body {
         padding: unset;
     }
+
+	.game-board {
+		top: 120px;
+	}
+
+	.game-logo-container > img {
+		height: 40px;
+		width: 40px;
+	}
+
+	.game-logo-container {
+		width: unset;
+		position: relative;
+		left: -2px;
+		padding-left: unset;
+	}
+
+	.game-board-white, .game-board-black {
+		width: 20.938rem;
+		height: 19.375rem;
+	}
+	.game-board-black {
+		top: 10px;
+	}
+
+	.menu {
+		padding: 0 32px;
+	}
+
+	.restart {
+		padding: 0 21px;
+	}
+
+	.cell-image {
+		height: 2.122rem;
+		/* width: 2.122rem; */
+	}
+
+	.row-1 {
+		/* grid-area: row-1; */
+		height: 2.122rem;
+		width: 2.122rem;
+		bottom: 8px;
+	}
+
+	.row-2 {
+		/* grid-area: row-2; */
+		height: 2.122rem;
+		width: 2.122rem;
+		bottom: 6px;
+	}
+
+	.row-3 {
+		/* grid-area: row-3; */
+		height: 2.122rem;
+		width: 2.122rem;
+		top: -4px;
+	}
+
+	.row-4 {
+		/* grid-area: row-4; */
+		height: 2.122rem;
+		width: 2.122rem;
+		top: -4px;
+	}
+
+	.row-5 {
+		/* grid-area: row-5; */
+		height: 2.122rem;
+		width: 2.122rem;
+		top: -4px;
+	}
+
+	.row-6 {
+		/* grid-area: row-6; */
+		height: 2.122rem;
+		width: 2.122rem;
+		top: -2px;
+	}
+
+	.col-1{
+		left: 11px;
+	}
+
+	.col-2{
+		left: 10px;
+	}
+
+	.col-3{
+		left: 8px;
+	}
+
+	.col-4{
+		left: 7px;
+	}
+
+	.col-5{
+		left: 7px;
+	}
+
+	.col-6{
+		left: 5px;
+	}
+
+	.col-7{
+		left: 4px;
+	}
 }
