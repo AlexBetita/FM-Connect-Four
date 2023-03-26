@@ -362,10 +362,17 @@
 	}
 
 	.col-6{
-		left: 5px;
+		left: 6px;
 	}
 
 	.col-7{
 		left: 4px;
 	}
+
+    .oval {
+        width: 20px;
+        height: 20px;
+        left: 6px;
+        top: 6px;
+    }
 }

@@ -21,6 +21,7 @@ import markerYellow from '../../../assets/images/marker-yellow-2.svg'
 import turnBackgroundRed from '../../../assets/images/turn-background-red.svg'
 import turnBackgroundYellow from '../../../assets/images/turn-background-yellow.svg'
 import ovalWhite from '../../../assets/images/oval-white.svg'
+import ovalWhiteSmall from '../../../assets/images/oval-white-small.svg'
 
 
 const GameBoard = ({timer, currentPlayer, setTimer, pause,
@@ -117,7 +118,9 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause,
             const currentElement = elements[i]
             const imgElement = document.createElement('img')
             imgElement.classList.add('oval')
-            imgElement.src = ovalWhite
+            const isMobile = width > 375 && height > 812 ? false : true
+            if(!isMobile) imgElement.src = ovalWhite
+            else imgElement.src = ovalWhiteSmall
             imgElement.alt = 'no-oval'
             currentElement.appendChild(imgElement)
         }

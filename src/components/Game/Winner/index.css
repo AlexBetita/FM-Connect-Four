@@ -50,3 +50,17 @@
 .play-again-button:hover {
     background-color: rgb(78, 25, 211);
 }
+
+
+@media screen and
+    (max-width: 375px) and
+    (max-height: 812px) { 
+
+        .winner-block {
+            bottom: 25px;
+        }
+
+        .winner-block-b {
+            bottom: 15px;
+        }
+}
