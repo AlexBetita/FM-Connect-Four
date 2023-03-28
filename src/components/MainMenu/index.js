@@ -52,17 +52,17 @@ const MainMenu = () => {
             <div className='main-menu-container'>
                 <div className="main-menu">
                     <div className="main-menu-items">
-                        <img src={cfgLogo} className="menu-logo"/>
+                        <img src={cfgLogo} className="menu-logo" alt='menu-logo'/>
                         <div className='player-v-player-button' onClick={playerVersusButton}
                             onMouseDown={playerVersusButtonMouseDown}
                             onMouseUp={playerVersusButtonMouseDown}
                             onMouseLeave={playerVersusButtonMouseDown}
                             ref={playerVersusPlayerRef}
                         >
-                            <div>
+                            <h1 style={{'fontSize' : '1.5rem'}}>
                             PLAY VS PLAYER
-                            </div>
-                            <img src={plaverVplayer}/>
+                            </h1>
+                            <img src={plaverVplayer} alt='no-player-vs-player'/>
                         </div>
                         <div className='player-v-player-button-b' ref={playerVersusPlayerBRef}></div>
                         <div className='game-rules-button' onClick={gameRulesButton}

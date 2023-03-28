@@ -218,6 +218,20 @@
     top: 15px;
 }
 
+.red, .yellow {
+    animation: 0.5s ease-in 0s slidein;
+    position: absolute;
+    top: 0px;
+}
+
+@keyframes slidein {
+    0% {
+        top: -70vh;
+    }
+    100% {
+        top: 0px;
+    }
+}
 
 @media screen and
         (min-height: 813px) and

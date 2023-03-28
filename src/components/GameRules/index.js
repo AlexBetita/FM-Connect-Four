@@ -67,6 +67,7 @@ const GameRules = () => {
                             onMouseDown={checkButtonActive}
                             onMouseUp={checkButtonActive}
                             onMouseLeave={checkButtonActive}
+                            alt='no-check-button'
                         />
                     </div>
                     <div className='game-rules-main-b'></div>

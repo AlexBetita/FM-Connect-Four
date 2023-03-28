@@ -15,13 +15,13 @@ function ErrorPage() {
                    'alignItems' :'center'}}>
         
         <Link to={'/'}>
-            <img className='logo' src={cfgLogo}/>
+            <img className='logo' src={cfgLogo} alt='logo'/>
         </Link>
 
       </div>
       
       <h1>Oops!</h1>
-      <img src={shock}/>
+      <img src={shock} alt='shock'/>
       <p>Sorry, an unexpected error has occurred.</p>
       <p className="error-status">
         <i>{error.statusText || error.message}</i>
