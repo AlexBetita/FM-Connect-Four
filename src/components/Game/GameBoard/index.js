@@ -288,7 +288,8 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause,
     },[timer, pause])
 
     const menuButton = () => {
-        navigate('/')
+        // navigate('/')
+		setPause(prevPause => !prevPause)
     }
 
     const moveMarker = (e) => {
